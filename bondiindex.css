@@ -1,0 +1,372 @@
+html{
+font-size: calc(0.50em + 1vmin);
+overflow: hidden;
+}
+
+.container{
+  display: block;
+  margin: -1.5%;
+  position: absolute;
+  width: 102vw;
+  height: 103vh;
+  opacity: 100;
+}
+
+.beachBackground{
+  position:absolute;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -3;
+  overflow: hidden;
+     /* top: -23%; 
+   left: 5% ;   */
+   animation: alive 5.2s  steps(6) forwards ; 
+}
+ @keyframes alive{
+0%{
+transform: translate(-13%, -0%)
+rotateZ(1deg)
+}10%{
+  transform: translate(-13%,-3%)
+}20%{
+  transform: translate(-11%,-5%)
+}30%{
+  transform: translate(-9%,-7%)
+}40%{
+  transform: translate(-7%,-10%)
+}50%{
+  transform: translate(-4%,-12%)
+}60%{
+  transform: translate(-2%,-16%)
+}70%{
+  transform: translate(0%,-19%)
+}80%{
+  transform: translate(2%,-21%)
+}90%{
+  transform: translate(3%, -22%)
+  rotateZ(1deg)
+}100%{
+transform: translate(5%, -22%)
+}
+} 
+
+/* TV FRAME */
+.tvFrame{
+  position: absolute;
+  top: -2.8%;
+  left: -0.2% ;
+  background-size: cover;
+  z-index: -1;
+  overflow: hidden;
+  width: 104vw;
+  height: 120vh;
+  background: radial-gradient(circle, rgba(0, 0, 0, 0) 68%, rgba(0, 0, 0, 0.242) 100%);
+}
+
+/* TOP RIGHT LOGO */
+.logo{
+  opacity: 70%;
+  position: absolute;
+  display: inline-block;
+  top:10%;
+  width: 8.5%;
+  left: 70%;
+  cursor: pointer;
+  z-index: 0;
+  border-radius: 20%;
+  animation: imageFlicker 0.1s infinite 0.5s alternate;
+}
+
+@keyframes imageFlicker{
+  0%{  
+  opacity: 70%;
+  }100%{
+  opacity: 65%;
+  }
+}
+
+/* DROPDOWN POSITION OF THE DROPDOWN MENU */
+.logoContent {
+  display: none ;
+  position: absolute;
+  width: 15%;
+  opacity: 95%;
+  left: 62.75%;
+  top: 25.1%;
+  z-index: 0;
+  background-image: url("beachImages/kiosk.jpg") ;
+  box-shadow: inset 0 0 10px #1b1a1a;
+  border-radius: 2%;  
+}
+
+
+/* DROPDOWN BOXES */
+  .logoContent a {
+  border-bottom: 1px dotted  rgba(26, 25, 25, 0.724);
+  border-left: 2px double gray;
+  border-top: 1px dotted grey;
+  border-right: 2px solid grey;
+  display: block;
+  z-index: 0;
+  border-radius: 5% 5% 5% 5%;
+  overflow: hidden;
+}
+
+.aOne, .aTwo, .aThree, .aFour{
+  visibility:hidden;
+  text-align: center;
+  background-image: url("beachImages/old-paper-transparent-background-8.png");
+  margin: 2%;
+  overflow-wrap: break-word;
+  font-weight: bold;
+  font-size: 100%;
+  font-family:'Times New Roman', Times, serif;
+  background-blend-mode: multiply;
+  border-radius: 5%;
+  background-color: rgba(246, 242, 246, 0.799);
+}
+
+
+   /*HOVER VISIBILITY*/
+#aa:hover .aOne, 
+#ab:hover .aTwo,
+#ac:hover .aThree,
+#ad:hover .aFour{
+  visibility: visible;
+  }
+
+  
+  /* DISPLAYING OF THE DROP DOWN BOXES */
+.contentBox:hover .logoContent {
+  display: block;
+  z-index: 1;
+}
+  
+.threeladies,.commercial,.twoSurfers, .twoLadies{
+  visibility: hidden;
+  position: fixed;
+  border: 4px solid rgb(95, 94, 94);
+  top: 15%;
+  left: 30%;
+  border-radius: 2%;
+}
+  
+#aa:hover .threeladies {
+  visibility: visible;
+  width: 28%;
+  top: 15%;
+  left:25%;
+  opacity: 98%;
+  animation: signalJump 0.2s ;
+  z-index: 2;
+}
+
+#ab:hover .commercial{
+  visibility: visible;
+  left:20%;
+  width: 35%;
+  opacity: 100%;
+  animation: signalJump 0.2s ;  
+}
+
+#ac:hover .twoSurfers{
+  visibility: visible;
+  width: 35%;
+  left: 20%;
+  opacity: 98%;
+  animation: signalJump 0.2s ;
+}
+
+#ad:hover .twoLadies{
+  visibility: visible;
+  top: 23%;
+  width: 39%;
+  left: 18%;
+  opacity: 98%;
+  animation: signalJump 0.2s ;   
+}
+
+@keyframes signalJump{
+  0%{
+    transform: rotateX(90deg);
+    opacity: 0%; 
+  }50%{
+   transform: rotateX(80deg);
+  }100%{
+    transform: rotateX(0deg); 
+  }
+} 
+
+/* CHECK THE BUTTONS UNDERNEATH HINT HINT */
+.radioHint{
+  position: absolute;
+  width: 5%;
+  top: 45%;
+  left: 84.43%;
+  z-index: 0;
+  animation: shake 0.16s infinite;
+}
+
+@keyframes shake{
+0%{
+  top: 45.03%;
+  transform: rotateZ(-1.1deg)
+}100%{
+  transform: rotateZ(1.1deg);
+  top: 45.02%;
+}
+}
+
+/* PSUDO ELEMENT TV DISTORTION */
+.filmGrain::after{
+  content:""; 
+  position: absolute;
+  left: -50%;
+  top: -50%;
+  width: 200%;
+  height: 200%;
+  background-image: url("beachImages/filmgrain2.png"); 
+  opacity: 12.5%;
+  z-index: -1;
+}
+
+.filmGrain::after{
+  animation: distortion 1.4s steps(3) infinite alternate-reverse;
+  z-index: -1;
+}
+@keyframes distortion{
+  0%, 100% {
+    transform: translate(10%,0%);
+  }15% {
+    transform: translate(-5%,-10%)
+  }35% {
+    transform: translate(3%,-15%)
+  }55% {
+    transform: translate(12%, 9%)
+  }75% {
+    transform: translate( 8%, 3%)
+  }95% {
+    transform: translate(-1%,7%)
+  }
+} 
+
+
+/* HIDDEN IMAGES SPREAD AROUND THE SCREEN, "YES I KNOW ITS PROBABLY A WAY TO CHAIN THIS TOGETHER AS WELL" */
+.redCross{
+  position: absolute;
+  top: 57.4%;
+  left: 11.2%;
+  width: 2.4%;
+  opacity: 0%;
+  animation: aliveEnd 1.6s 5.5s  forwards;
+}
+.openSign{
+  position:absolute;
+  top:17.5%;
+  left: 10.7%;
+  width:3.8%;
+  opacity: 0%;
+  animation: aliveEnd 1.6s 5.5s  forwards;
+}
+.motelSign{
+  position:absolute;
+  top:21.2%;
+  left: 25.8%;
+  width:1.9%;
+  opacity: 0%;
+  animation: aliveEnd 1.6s 5.5s  forwards;
+}
+.oldCamera{
+  position: absolute;
+  top:80%;
+  left:68%;
+  width: 4.5%;
+  opacity: 0%;
+  animation: aliveEnd 1.6s 5.5s  forwards;
+}
+
+ @keyframes aliveEnd{
+  0%{
+    opacity: 0%;
+  }100%{
+    opacity: 70%;
+  }
+} 
+
+.then{
+  position:absolute;
+  top:62%;
+  left: 32%;
+  width:35%;
+  height: 29%;
+  border-radius: 30%;
+  border: 3px solid grey;
+}
+
+.lifeguard{
+  position: absolute;
+  top: 66%;
+  left: 9%;
+  width: 10%;
+  border: 2px solid grey;
+  border-radius: 50%;
+}
+.bondiHotel{
+  position:absolute;
+  top:14%;
+  left: 28%;
+  width:11%;
+  border-radius: 100%;
+  border: 3px solid grey;
+}
+.nelsonHotel{
+  position:absolute;
+  top:26%;
+  left: 12%;
+  width:11%;
+  border-radius: 100%;
+  border: 3px solid grey;
+}
+
+.bondiHotel,.nelsonHotel, .then, .lifeguard{
+  opacity: 0%;
+}
+
+.openSign:hover +.nelsonHotel, 
+.motelSign:hover+.bondiHotel,
+.oldCamera:hover +.then, 
+.redCross:hover +.lifeguard{
+  opacity: 95%;
+  transition: opacity 1.6s;
+  z-index: -2;
+}
+
+
+/* HIDDEN AUDIO PLAYERS ON EACH TV BUTTON - CLICK TO TURN ON OR OFF */
+.soundspot{
+  width: 5.9%;
+  height: 4%;
+  left: 86%;
+  position: absolute;
+  opacity: 3%;
+  filter: drop-shadow(16px 16px 10px black) sepia(200%) invert(20%) blur(.4px);
+  border-radius: 20%;
+  border:  solid black;
+}
+
+#sound1{
+  top: 56.65%;
+}
+#sound2{
+  top: 63.77%;
+}
+#sound3{
+  top: 71.1%;
+}
+#sound4{
+  top: 78.45%;
+}
+#sound5{
+  top: 85.8%;
+}
+ /* Kristian Iversen iD:117019 26/11/22 kl 14:25  */
